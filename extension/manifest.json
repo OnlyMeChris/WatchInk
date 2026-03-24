@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "WatchInk",
+  "version": "1.0.0",
+  "description": "Transform Disney+ into the WatchInk watch-party experience — Inkwell CX branding.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.disneyplus.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.disneyplus.com/*"],
+      "js": [
+        "components/topbar.js",
+        "components/sidebar.js",
+        "components/chat.js",
+        "components/controls.js",
+        "content.js"
+      ],
+      "css": ["styles.css"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css", "icons/*"],
+      "matches": ["*://*.disneyplus.com/*"]
+    }
+  ]
+}
